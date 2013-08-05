@@ -1,0 +1,9 @@
+blog: robotclass.ru
+urls:
+  - url: https://raw.github.com/robotclass/robotclass/master/articles/raspberry-pi-start/raspberry-pi-start.md
+    wp_id: 752
+    title: raspberry-pi-start
+
+  - url: https://raw.github.com/robotclass/robotclass/master/articles/raspberry-pi-ruby-web-server/raspberry-pi-ruby-web-server.md
+    wp_id: 753
+    title: raspberry-pi-ruby-web-server
