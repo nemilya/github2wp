@@ -1,3 +1,9 @@
+require 'open-uri'
+require 'openssl'
+require 'redcarpet'
+require 'xmlrpc/client'
+
+
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 helpers do

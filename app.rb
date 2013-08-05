@@ -1,11 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 
-require 'open-uri'
-require 'openssl'
-require 'redcarpet'
-require 'xmlrpc/client'
-
 require 'helpers'
 
 
