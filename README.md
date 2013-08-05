@@ -24,9 +24,9 @@
 здесь  770 это идентификатор.
 4. Открываю на редактирование файл "config.yml" - добавляю:
 
-  - url: RAW_URL
-    wp_id: 770
-    title: raspberry-pi-ruby-web-server
+    - url: RAW_URL
+      wp_id: 770
+      title: raspberry-pi-ruby-web-server
 
 Здесь RAW_URL - это прямая ссылка на исходник текста в GitHub.
 
