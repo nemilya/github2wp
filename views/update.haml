@@ -1,0 +1,27 @@
+.row.span12
+  %p
+    From source URL: 
+    = @url_item['url']
+  %p 
+    To WP page_id:
+    = @url_item['wp_id']
+    %a{ :target=>"_blank", :href=>@blog_url +'/?p='+ @url_item['wp_id'].to_s}
+      open
+.row.span12
+  .span3.well
+    Blog:
+    = @blog_url
+    %form.form{:action => "/update", :method=>"post"}
+      %input{:type=>"hidden", :name=>"pos", :value=>@pos}
+      %label
+        WP Login:
+      %input.input{:type=>"text", :name=>"login"}
+      %br
+      %label
+        WP Pwd:
+      %input.input{:type=>"password", :name=>"password"}
+      %hr
+      %input.btn.btn-primary{:type=>"submit", :value=>"Update"}
+      &nbsp;
+      %a{:href=>"/"}
+        Cancel

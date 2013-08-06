@@ -1,23 +1,60 @@
 require 'rubygems'
 require 'sinatra'
+require "sinatra/reloader" if File.exists?('c:/')
+
+require 'haml'
 
 require 'helpers'
 
+enable :sessions
 
 before do
   require 'yaml'
-  @config = YAML.load(open('config.yml'))
+  @config   = YAML.load(open('config.yml'))
   @blog_url = 'http://' + @config['blog']
   @urls     = @config['urls']
+  @is_logged = session[:is_logged]
+  if !@is_logged && request.path_info != '/login'
+    redirect '/login'
+  end
 end
 
+get '/login' do
+  haml :login
+end
+
+post '/login' do
+  if @config['pass-word'] == params[:pwd]
+    session[:is_logged] = true
+    redirect '/'
+  else
+    redirect '/login?msg=errorlogin'
+  end
+end
+
+get '/logout' do
+  session[:is_logged] = nil
+  redirect '/'
+end 
+
 get '/' do
-  erb :index
+  haml :index
+end
+
+get '/about' do
+  @content = File.read('README.md')
+  haml :page
+end
+
+get '/contact' do
+  @content = File.read('CONTACT.md')
+  haml :page
 end
 
 get '/update/:pos' do
-  @pos = params[:pos]
-  erb :update
+  @pos      = params[:pos]
+  @url_item = @urls[@pos.to_i]
+  haml :update
 end
 
 post '/update' do

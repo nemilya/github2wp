@@ -1,0 +1,20 @@
+%p.well
+  Target Blog:
+  = @blog_url
+
+%table.table.table-bordered
+  %thead
+    %tr{:style=>"background-color: #d9edf7;color: #606060"}
+      %th GitHub page title
+      %th WordPress page_id
+      %th
+  %tbody
+    - pos = 0
+    - @urls.each do |line|
+      %tr
+        %td= line['title']
+        %td= line['wp_id']
+        %td
+          %a.btn{ :href => "/update/"+ pos.to_s}
+            Update &gt;&gt;
+      - pos += 1

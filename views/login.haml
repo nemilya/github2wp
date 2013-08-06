@@ -1,0 +1,8 @@
+%div{:style=>"width: 300px"}
+  - if params[:msg] && params[:msg] == 'errorlogin'
+    .alert.alert-error
+      Password error
+  %form{:action=>"login", :method=>"post"}
+    %input.input-block-level{:name=>"pwd",  :placeholder => "Password", :type => "password"}
+    %br
+    %button.btn.btn-primary{:type => "submit"} Login
