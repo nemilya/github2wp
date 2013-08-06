@@ -1,10 +1,10 @@
-require 'rubygems'
+#require 'rubygems'
 require 'sinatra'
 require "sinatra/reloader" if File.exists?('c:/')
 
 require 'haml'
 
-require 'helpers'
+require './helpers'
 
 enable :sessions
 
