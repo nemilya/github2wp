@@ -82,10 +82,13 @@ github2wp-config - для URL на конфиг файл
     heroku config:set github2wp-pwd=...
     heroku config:set github2wp-config=http://...yml
 
-Например:
+Например, сам конфиг хранится в формате YAML в Git репозитории на GitHub:
 
     heroku config:set github2wp-config=https://raw.github.com/robotclass/robotclass/master/articles/github2wp-config.yml
 
+
+В случае внешнего конфига в футере будет соответствующая информация, для перехода
+на просмотр конфига, и перегрузку (в случае изменения конфига)
 
 Замечания
 ---------
@@ -94,6 +97,7 @@ github2wp-config - для URL на конфиг файл
 
 Разделитель "Читать далее", формируется из "---" указанного в отдельной строке
 файла MarkDown.
+
 
 Установка
 ---------

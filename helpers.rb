@@ -21,10 +21,11 @@ helpers do
       config_cnt = $config_cnt || get_cnt_from_url(ENV['github2wp-config'])
       $config_cnt = config_cnt # cache
       @remote_config = ENV['github2wp-config']
-    else
+    elsif File.exists?('config.yml')
       config_cnt = open('config.yml').read
     end
-    @config   = YAML.load(config_cnt)
+    # if there is no config - empty @urls - just "try" page (see 'login' router)
+    @config   = config_cnt ? @configYAML.load(config_cnt) : {}
     @blog_url = @config['blog'] ? 'http://' + @config['blog'] : ''
     @urls     = @config['urls'] || []
     @password = @password || @config['pass-word']
