@@ -69,6 +69,24 @@ title - это просто заголовок, с которым страниц
 Плюсом к этому - пост опубликуется (из состояния Черновик).
 
 
+Heroku
+------
+
+Для запуска на Heroku необходимо выставить перменные окружения:
+
+github2wp-pwd - для пароля
+github2wp-config - для URL на конфиг файл
+
+Для этого в консоли в папке приложения:
+
+    heroku config:set github2wp-pwd=...
+    heroku config:set github2wp-config=http://...yml
+
+Например:
+
+    heroku config:set github2wp-config=https://raw.github.com/robotclass/robotclass/master/articles/github2wp-config.yml
+
+
 Замечания
 ---------
 

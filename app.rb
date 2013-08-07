@@ -9,27 +9,20 @@ require './helpers'
 enable :sessions
 
 before do
-  require 'yaml'
-  @config   = YAML.load(open('config.yml'))
-  @blog_url = 'http://' + @config['blog']
-  @urls     = @config['urls']
+  init_config
+
   @is_logged = session[:is_logged]
   if !@is_logged && request.path_info != '/login'
     redirect '/login'
   end
 end
 
-get '/login' do
-  haml :login
+get '/' do
+  haml :index
 end
 
-post '/login' do
-  if @config['pass-word'] == params[:pwd]
-    session[:is_logged] = true
-    redirect '/'
-  else
-    redirect '/login?msg=errorlogin'
-  end
+get '/login' do
+  haml :login
 end
 
 get '/logout' do
@@ -37,19 +30,33 @@ get '/logout' do
   redirect '/'
 end 
 
-get '/' do
-  haml :index
+post '/login' do
+  if @password == params[:pwd]
+    session[:is_logged] = true
+    redirect '/try' if @urls.size == 0
+    redirect '/'
+  else
+    redirect '/login?msg=errorlogin'
+  end
 end
 
-get '/about' do
-  @content = File.read('README.md')
-  haml :page
+get '/reload_config' do
+  reload_config
+  redirect '/'
 end
 
-get '/contact' do
-  @content = File.read('CONTACT.md')
-  haml :page
+
+get '/page/:name' do
+  static_pages = {
+    'about'   => 'README.md',
+    'contact' => 'docs/CONTACT.md'
+  }
+  if static_pages.keys.include?(params[:name])
+    @content = File.read(static_pages[params[:name]])
+    haml :page
+  end
 end
+
 
 get '/update/:pos' do
   @pos      = params[:pos]
@@ -79,6 +86,8 @@ post '/update' do
 end
 
 get '/try' do
+  @content = File.read('docs/TRY.md')
+  @default_url = 'https://raw.github.com/nemilya/github2wp/master/docs/DEMO.md'
   haml :try
 end
 

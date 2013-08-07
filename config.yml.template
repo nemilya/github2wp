@@ -1,3 +1,4 @@
+pass-word: 123456
 blog: robotclass.ru
 urls:
   - url: https://raw.github.com/robotclass/robotclass/master/articles/raspberry-pi-start/raspberry-pi-start.md

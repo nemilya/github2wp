@@ -1,3 +1,10 @@
 %hr
   %footer
     %p Github2Wp 2013
+    - if @remote_config
+      %small.muted
+        %a.muted{ :href=> @remote_config } remote config
+        |
+        %a.muted{ :href=> github_row_link_to_human(@remote_config) } view
+        |
+        %a.muted{ :href=> '/reload_config' } reload config

@@ -1,32 +1,31 @@
 .row.span12
+  %pre= @content
+
 .row.span12
-  .span4.well
-    %form.form{:action => "/try", :method=>"post"}
+  .span9.well
+    %form.form-inline{:action => "/try", :method=>"post"}
 
-      %label
-        Blog:
-      http://
-      %input.input{:type=>"text", :name=>"blog"}
-      %br
+      %p
+        %label Blog:
+        http://
+        %input{:type=>"text", :name=>"blog"}
 
-      %label
-        From source URL:
-      %input.input{:type=>"text", :name=>"url"}
-      %br
+      %p
+        %label From source URL:
+        %input.input-xxlarge{:type=>"text", :name=>"url", :value => @default_url }
 
-      %label
-        To WP page_id:
-      %input.input{:type=>"text", :name=>"wp_id"}
-      %br
+      %p
+        %label To WP page_id:
+        %input.input-small{:type=>"text", :name=>"wp_id"}
 
-      %label
-        WP Login:
-      %input.input{:type=>"text", :name=>"login"}
-      %br
+      %p
+        %label WP Login:
+        %input{:type=>"text", :name=>"login"}
 
-      %label
-        WP Pwd:
-      %input.input{:type=>"password", :name=>"password"}
+      %p
+        %label WP Pwd:
+        %input{:type=>"password", :name=>"password"}
+  
       %hr
       %input.btn.btn-primary{:type=>"submit", :value=>"Update"}
       &nbsp;
