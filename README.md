@@ -68,30 +68,17 @@ title - это просто заголовок, с которым страниц
 
 Плюсом к этому - пост опубликуется (из состояния Черновик).
 
+Демо
+----
 
-Heroku
-------
+Стенд стартован на Heroku: http://github2wp.herokuapp.com/
 
-Для запуска на Heroku необходимо выставить перменные окружения:
-
-github2wp-pwd - для пароля
-github2wp-config - для URL на конфиг файл
-
-Для этого в консоли в папке приложения:
-
-    heroku config:set github2wp-pwd=...
-    heroku config:set github2wp-config=http://...yml
-
-Например, сам конфиг хранится в формате YAML в Git репозитории на GitHub:
-
-    heroku config:set github2wp-config=https://raw.github.com/robotclass/robotclass/master/articles/github2wp-config.yml
+Пароль: demo
 
 
-В случае внешнего конфига в футере будет соответствующая информация, для перехода
-на просмотр конфига, и перегрузку (в случае изменения конфига)
 
-Замечания
----------
+Источник
+--------
 
 Пока предусмотрена обработка статей из формата MarkDown.
 
@@ -124,3 +111,26 @@ github2wp-config - для URL на конфиг файл
     bundle exec ruby app.rb
 
 Открываем браузером `http://localhost:4567`
+
+
+Heroku
+------
+
+Для запуска на Heroku необходимо выставить перменные окружения:
+
+github2wp-pwd - для пароля
+github2wp-config - для URL на конфиг файл
+
+Для этого в консоли в папке приложения:
+
+    heroku config:set github2wp-pwd=...
+    heroku config:set github2wp-config=http://...yml
+
+Например, сам конфиг хранится в формате YAML в Git репозитории на GitHub:
+
+    heroku config:set github2wp-config=https://raw.github.com/robotclass/robotclass/master/articles/github2wp-config.yml
+
+
+В случае внешнего конфига в футере будет соответствующая информация, для перехода
+на просмотр конфига, и перегрузку (в случае изменения конфига)
+
